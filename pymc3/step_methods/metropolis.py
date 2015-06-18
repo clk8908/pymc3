@@ -198,7 +198,7 @@ class BinaryMetropolis(ArrayStep):
         switch_locs = where(rand_array < p_jump)
         q[switch_locs] = True - q[switch_locs]
 
-        q_new = metrop_select(self.delta_logp(q,q0), q, q0)
+        q_new = metrop_select(logp(q) - logp(q0), q, q0)
 
         return q_new
 
